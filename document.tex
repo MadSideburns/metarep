@@ -3,12 +3,11 @@
 \usepackage[a4paper, total={6in, 8in}, margin=2cm]{geometry}
 \usepackage{amsfonts}
 \usepackage{amsmath}
-\usepackage{nicefrac}
 
 \newcommand{\deh}{\mathrm{d}}
 \newcommand{\ham}{\hat{\mathcal{H}}}
 \newcommand{\dsone}{\mymathbb{1}}
-\newcommand{\onehalf}{\nicefrac{1}{2}}
+\newcommand{\onehalf}{\frac{1}{2}}
 \newcommand{\bra}[1]{\left\langle #1 \right|}
 \newcommand{\ket}[1]{\left| #1 \right\rangle}
 \newcommand{\braket}[2]{\left\langle #1 \middle| #2 \right\rangle}
@@ -32,7 +31,7 @@ Definizione
 Formula generale completa
 \[Y_l^m(\theta,\phi)=(-1)^\frac{m+|m|}{2}\left(\frac{(2l+1)(l-|m|)!}{4\pi (l+|m|)!}\right)^{\onehalf} P_l^{|m|}(\cos\theta)\,e^{im\phi}\]
 Polinomi di Legendre \[P_l(u)=\frac{1}{2^l l!} \der[l]{u}(u^2-1)^l\]
-Funzioni associate di Legendre \[P_l^m(u)=(1-u^2)^{\nicefrac{m}{2}} \der[m]{u}P_l(u)\]
+Funzioni associate di Legendre \[P_l^m(u)=(1-u^2)^{\frac{m}{2}} \der[m]{u}P_l(u)\]
 Elenco di alcune armoniche sferiche
 \begin{itemize}
     \item $l=0$ 
@@ -69,7 +68,7 @@ Operatori adimensionali ridotti
 \end{align*}
 Operatori di creazione e distruzione
 \begin{align*}
-    \hat{a}=\frac{\hat{q}+i\hat{k}}{\sqrt{2}} && \hat{a}^\dagger=\frac{\hat{q}-i\hat{k}}{\sqrt{2}} && \hat{N}=\hat{a}^\dagger \hat{a} && \comm{\hat{a}}{\hat{a}^\dagger}=\dsone && \ham = \hbar\omega(\hat{a}^\dagger\hat{a}+\nicefrac{1}{2})
+    \hat{a}=\frac{\hat{q}+i\hat{k}}{\sqrt{2}} && \hat{a}^\dagger=\frac{\hat{q}-i\hat{k}}{\sqrt{2}} && \hat{N}=\hat{a}^\dagger \hat{a} && \comm{\hat{a}}{\hat{a}^\dagger}=\dsone && \ham = \hbar\omega(\hat{a}^\dagger\hat{a}+\frac{1}{2})
 \end{align*}
 Relazione con posizione e impulso originali
 \begin{align*}
@@ -109,7 +108,7 @@ Spettro (parte discreta)
 Autofunzioni
 \[\psi_{nlm}(r,\theta,\phi)=R_{n,l}(r)Y_l^m(\theta,\phi)\]
 Parte radiale
-\[R_{n,l}(r)=\rho^l\,e^{-\nicefrac{\rho}{2}}L_{n-l-1}^{2l+1}(\rho)\quad\mathrm{con}\quad \rho=\frac{2r}{na_B}\]
+\[R_{n,l}(r)=\rho^l\,e^{-\frac{\rho}{2}}L_{n-l-1}^{2l+1}(\rho)\quad\mathrm{con}\quad \rho=\frac{2r}{na_B}\]
 Normalizzata come
 \[\int_0^{\infty} |R_{n,l}(r)|^2 r^2 \deh r = 1\]
 Elenco di alcune funzioni radiali
@@ -133,7 +132,7 @@ Elenco di alcune funzioni radiali
 Polinomi di Laguerre generalizzati (definizione, non va saputa)
 \[L_n^\alpha(x)=\frac{x^{-\alpha}}{\Gamma(n+1)}\left(\der{x} -\dsone\right)^n x^{n+\alpha}\]
 Autofunzioni complete normalizzate
-\[\psi_{n,l,m}(r,\theta,\phi)=\sqrt{\left(\frac{2}{na_B}\right)^3\frac{(n-l-1)!}{2n(n+l)!}}\,e^{-\nicefrac{\rho}{2}}\rho^l L_{n-l-1}^{2l+1}(\rho)Y_l^m(\theta,\phi)\]
+\[\psi_{n,l,m}(r,\theta,\phi)=\sqrt{\left(\frac{2}{na_B}\right)^3\frac{(n-l-1)!}{2n(n+l)!}}\,e^{-\frac{\rho}{2}}\rho^l L_{n-l-1}^{2l+1}(\rho)Y_l^m(\theta,\phi)\]
 Elenco di qualche autostato
 \begin{itemize}
     \item $n=1$
