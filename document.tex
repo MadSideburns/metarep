@@ -1,0 +1,178 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage[a4paper, total={6in, 8in}, margin=2cm]{geometry}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{nicefrac}
+
+\newcommand{\deh}{\mathrm{d}}
+\newcommand{\ham}{\hat{\mathcal{H}}}
+\newcommand{\dsone}{\mymathbb{1}}
+\newcommand{\onehalf}{\nicefrac{1}{2}}
+\newcommand{\bra}[1]{\left\langle #1 \right|}
+\newcommand{\ket}[1]{\left| #1 \right\rangle}
+\newcommand{\braket}[2]{\left\langle #1 \middle| #2 \right\rangle}
+\newcommand{\matrixelement}[3]{\left\langle #1 \middle| #2 \middle| #3 \right\rangle}
+\newcommand{\der}[2][1]{\if 1#1 \frac{\deh}{\deh #2} \else \frac{\deh^#1}{\deh #2^#1} \fi}
+\newcommand{\comm}[2]{\left[#1,#2\right]}
+
+\DeclareMathAlphabet{\mymathbb}{U}{BOONDOX-ds}{m}{n}
+
+\title{Formulario per QM}
+
+
+\begin{document}
+
+\maketitle
+
+\section{Armoniche sferiche}
+Definizione
+\[\hat{L}^2Y_l^m(\theta,\phi)=\hbar^2 l(l+1) Y_l^m(\theta,\phi)\]
+\[\hat{L}_zY_l^m(\theta,\phi)=\hbar m Y_l^m(\theta,\phi)\]
+Formula generale completa
+\[Y_l^m(\theta,\phi)=(-1)^\frac{m+|m|}{2}\left(\frac{(2l+1)(l-|m|)!}{4\pi (l+|m|)!}\right)^{\onehalf} P_l^{|m|}(\cos\theta)\,e^{im\phi}\]
+Polinomi di Legendre \[P_l(u)=\frac{1}{2^l l!} \der[l]{u}(u^2-1)^l\]
+Funzioni associate di Legendre \[P_l^m(u)=(1-u^2)^{\nicefrac{m}{2}} \der[m]{u}P_l(u)\]
+Elenco di alcune armoniche sferiche
+\begin{itemize}
+    \item $l=0$ 
+    \begin{itemize}
+        \item[] $Y_0^0(\theta,\phi)=\frac{1}{\sqrt{4\pi}}$
+    \end{itemize}
+    \item $l=1$
+    \begin{itemize}
+        \item[] $Y_1^0(\theta,\phi)=\sqrt{\frac{3}{4\pi}}\cos\theta$
+        \item[] $Y_1^{\pm 1}(\theta,\phi)=\mp\frac{1}{2}\sqrt{\frac{3}{2\pi}}\sin\theta\,e^{\pm i\phi}$
+    \end{itemize}
+    \item $l=2$
+    \begin{itemize}
+        \item[] $Y_2^0(\theta,\phi)=\frac{1}{4}\sqrt{\frac{5}{\pi}}(3 \cos^2\theta-1)$
+        \item[] $Y_2^{\pm 1}(\theta,\phi)=\mp\frac{1}{2}\sqrt{\frac{15}{2\pi}}\sin\theta\,\cos\theta\,e^{\pm i\phi}$
+        \item[] $Y_2^{\pm 2}(\theta,\phi)=\frac{1}{4}\sqrt{\frac{15}{2\pi}}\sin^2\theta\,e^{\pm2i\phi}$
+    \end{itemize}
+\end{itemize}
+Proprietà utili
+\begin{itemize}
+    \item[] $Y_l^{-m}(\theta,\phi)=(-1)^m\, Y_l^m(\theta,\phi)^*$
+    \item[] $\int \deh\Omega\, Y_l^m(\theta,\phi)^*\,Y_{l'}^{m'}(\theta,\phi)=\delta_{l,l'}\delta_{m,m'} $ 
+    \item[] Trasformazione di parità: \quad $\hat{P} Y_l^m(\theta,\phi)=(-1)^l \,Y_l^m(\theta,\phi)$
+\end{itemize}
+
+\section{Oscillatore armonico}
+Hamiltoniano
+\[ \ham = \frac{\hat{p}^2}{2m} + \frac{m\omega^2 \hat{x}^2}{2} \]
+Spettro
+\[ E_n=\hbar\omega\left(\frac{1}{2}+n\right),\quad n \in \mathbb{N}^{0+} \]
+Operatori adimensionali ridotti
+\begin{align*}
+    \hat{q}=\left(\frac{m\omega}{\hbar}\right)^{\onehalf}\hat{x} && \hat{k}=\left(\frac{1}{m\omega\hbar}\right)^{\onehalf} \hat{p} && \ham = \frac{\hbar\omega}{2}(\hat{k}^2+\hat{q}^2)
+\end{align*}
+Operatori di creazione e distruzione
+\begin{align*}
+    \hat{a}=\frac{\hat{q}+i\hat{k}}{\sqrt{2}} && \hat{a}^\dagger=\frac{\hat{q}-i\hat{k}}{\sqrt{2}} && \hat{N}=\hat{a}^\dagger \hat{a} && \comm{\hat{a}}{\hat{a}^\dagger}=\dsone && \ham = \hbar\omega(\hat{a}^\dagger\hat{a}+\nicefrac{1}{2})
+\end{align*}
+Relazione con posizione e impulso originali
+\begin{align*}
+    \hat{x}=\sqrt{\frac{\hbar}{m\omega}}\frac{\hat{a}+\hat{a}^\dagger}{\sqrt{2}} && \hat{p}=\sqrt{m\omega\hbar}\,\frac{\hat{a}-\hat{a}^\dagger}{i\sqrt{2}}
+\end{align*}
+Azione sugli autostati
+\begin{align*}
+\hat{a}^\dagger\ket{n}=\sqrt{n+1}\ket{n+1} && \hat{a}\ket{n}=\sqrt{n}\ket{n-1} && \ket{n}=\frac{1}{\sqrt{n!}}\left(\hat{a}^\dagger\right)^n\ket{0}
+\end{align*}
+Autofunzioni
+\[\psi_n(x)=\sqrt{\frac{k}{\sqrt{\pi}2^n n!}}H_n(kx)\,e^{-\frac{k^2x^2}{2}}\quad\mathrm{con}\quad k=\sqrt{\frac{m\omega}{\hbar}}\]
+Polinomi di Hermite
+\[H_n(x)=(-1)^n \, e^{x^2}\,\der[n]{x}e^{-x^2}\]
+\begin{itemize}
+    \item[] $H_0(x)=1$
+    \item[] $H_1(x)=2x$
+    \item[] $H_2(x)=4x^2-2$
+    \item[] $H_3(x)=8x^3-12x$
+\end{itemize}
+
+\section{Atomo di idrogeno / positronio}
+Hamiltoniano
+\[\ham=\frac{\hat{p}_1^2}{2 m_1}+\frac{\hat{p}_2^2}{2m_2}- \frac{k}{|\hat{\mathbf{r}}_1-\hat{\mathbf{r}_2}|}=\frac{\hat{P}^2}{2M}+\frac{\hat{p}^2}{2\mu}-\frac{k}{\hat{r}}\]
+\begin{align*}
+     \mathbf{R}=\frac{m_1 \mathbf{r}_1 + m_2 \mathbf{r}_2}{m_1+m_2} && \mathbf{r}=\mathbf{r}_2-\mathbf{r}_1 && \hat{\mathbf{P}}=i\hbar\nabla_\mathbf{R} && \hat{\mathbf{p}}=i\hbar\nabla_\mathbf{r} && M = m_1+m_2 && \mu = \frac{m_1 m_2}{m_1+m_2}
+\end{align*}
+Sistema disaccopiato CM + moto relativo, da qui in avanti si considera soltanto il moto relativo. 
+\[\mu=\begin{cases} 
+\approx m_e\quad\textrm{per H}\\
+\frac{m_e}{2}\quad\textrm{per Ps}
+\end{cases}
+\]
+Raggio di Bohr 
+\[a_B=\frac{\hbar}{\mu\alpha c}\]
+Spettro (parte discreta)
+\[E_n=-\frac{\mu\alpha^2c^2}{2n^2},\quad n\in\mathbb{N}^+\]
+Autofunzioni
+\[\psi_{nlm}(r,\theta,\phi)=R_{n,l}(r)Y_l^m(\theta,\phi)\]
+Parte radiale
+\[R_{n,l}(r)=\rho^l\,e^{-\nicefrac{\rho}{2}}L_{n-l-1}^{2l+1}(\rho)\quad\mathrm{con}\quad \rho=\frac{2r}{na_B}\]
+Normalizzata come
+\[\int_0^{\infty} |R_{n,l}(r)|^2 r^2 \deh r = 1\]
+Elenco di alcune funzioni radiali
+\begin{itemize}
+    \item $n=1$
+    \begin{itemize}
+        \item[] $R_{1,0(r)}=\frac{2}{\sqrt{a_B^3}}e^{-r/a_B}$
+    \end{itemize}
+    \item $n=2$
+    \begin{itemize}
+        \item[] $R_{2,0}(r)=\frac{1}{2\sqrt{2a_B^3}}e^{-r/2a_B}\left(2-\frac{r}{a_B}\right)$
+        \item[] $R_{2,1}(r)=\frac{1}{2\sqrt{6a_B^3}}e^{-r/2a_B}\frac{r}{a_B}$
+    \end{itemize}
+    \item $n=3$
+    \begin{itemize}
+        \item[] $R_{3,0}(r)=\frac{2}{81\sqrt{3a_B^3}}e^{-r/3a_B}\left(27-18\frac{r}{a_B}+2\frac{r^2}{a_B^2}\right)$
+        \item[] $R_{3,1}(r)=\frac{1}{27}\sqrt{\frac{2}{3a_B^3}}e^{-r/3a_B}\frac{r}{a_B}\left(4-\frac{2r}{3a_B}\right)$
+        \item[] $R_{3,2}(r)=\frac{2}{81}\sqrt{\frac{2}{15a_B^3}}e^{-r/3a_B}\left(\frac{r}{a_B}\right)^2$
+    \end{itemize}
+\end{itemize}
+Polinomi di Laguerre generalizzati (definizione, non va saputa)
+\[L_n^\alpha(x)=\frac{x^{-\alpha}}{\Gamma(n+1)}\left(\der{x} -\dsone\right)^n x^{n+\alpha}\]
+Autofunzioni complete normalizzate
+\[\psi_{n,l,m}(r,\theta,\phi)=\sqrt{\left(\frac{2}{na_B}\right)^3\frac{(n-l-1)!}{2n(n+l)!}}\,e^{-\nicefrac{\rho}{2}}\rho^l L_{n-l-1}^{2l+1}(\rho)Y_l^m(\theta,\phi)\]
+Elenco di qualche autostato
+\begin{itemize}
+    \item $n=1$
+    \begin{itemize}
+        \item $l=0$
+        \begin{itemize}
+            \item[] $\psi_{1,0,0}(r,\theta,\phi)=\frac{1}{\sqrt{\pi a_B^3}}e^{-r/a_B}$ 
+        \end{itemize}
+    \end{itemize}
+    \item $n=2$
+    \begin{itemize}
+        \item $l=0$
+        \begin{itemize}
+            \item[] $\psi_{2,0,0}(r,\theta,\phi)=\frac{1}{4\sqrt{2\pi a_B^3}}e^{-r/2a_B}\left(2-\frac{r}{a_B}\right)$ 
+        \end{itemize}
+        \item $l=1$
+        \begin{itemize}
+            \item[] $\psi_{2,1,0}(r,\theta,\phi)=\frac{1}{4\sqrt{2\pi a_B^3}}e^{-r/2a_B}\frac{r}{a_B}\cos\theta$
+            \item[] $\psi_{2,1,\pm1}(r,\theta,\phi)=\mp \frac{1}{8\sqrt{\pi a_B^3}}e^{-r/2a_B}\frac{r}{a_B}\sin\theta \,e^{\pm i \phi}$ 
+        \end{itemize}
+    \end{itemize}
+    \item $n=3$
+    \begin{itemize}
+        \item $l=0$
+        \begin{itemize}
+            \item[] $\psi_{3,0,0}(r,\theta,\phi)=\frac{1}{18\sqrt{3\pi a_B^3}}e^{-r/3a_B}\left(6-\frac{4r}{a_B}+\frac{4r^2}{9a_B^2}\right)$ 
+        \end{itemize}
+        \item $l=1$
+        \begin{itemize}
+            \item[] $\psi_{3,1,0}(r,\theta,\phi)=\sqrt{\frac{2}{81\pi a_B^3}}e^{-r/3a_B}\frac{r}{a_B}\left(6-\frac{r}{a_B}\right)\cos\theta$
+            \item[] $\psi_{3,1,\pm1}(r,\theta,\phi)=\mp\frac{1}{81\sqrt{\pi a_B^3}}e^{-r/3a_B}\frac{r}{a_B}\left(6-\frac{r}{a_B}\right)\sin\theta \,e^{\pm i \phi}$
+        \end{itemize}
+        \item $l=2$
+        \begin{itemize}
+            \item[] $\psi_{3,2,0}(r,\theta,\phi)=\frac{1}{81\sqrt{6\pi a_B^3}}e^{-r/3a_B}\left(\frac{r}{a_B}\right)^2\left(3\cos^2\theta-1\right)$
+            \item[] $\psi_{3,2,\pm1}(r,\theta,\phi)=\mp \frac{1}{81\sqrt{\pi a_B^3}}e^{-r/3a_B}\left(\frac{r}{a_B}\right)^2 \sin\theta\, \cos\theta \,e^{\pm i \phi}$
+            \item[] $\psi_{3,2,\pm2}(r,\theta,\phi)=\frac{1}{162\sqrt{\pi a_B^3}}e^{-r/3a_B}\left(\frac{r}{a_B}\right)^2\sin^2\theta\,e^{\pm2i\phi}$ 
+        \end{itemize}
+    \end{itemize}
+\end{itemize}
+
+\end{document}
