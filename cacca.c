@@ -2,6 +2,6 @@
 
 int main()
 {
-    printf("cacca6 feature1\n");
+    printf("cacca6 feature2\n");
     return 0;
 }
